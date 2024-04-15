@@ -1,0 +1,20 @@
+
+@use './custom'  as *;
+
+// Import Components 
+@use './components/buttons' as *;
+@use './components/mixins' as *;
+@use './components/typography' as *;
+
+//Sections
+@use './sections/navbar' as *;
+@use './sections/home-banner' as *;
+@use './sections/browse-the-range' as *;
+@use './sections/our-products' as *;
+@use './sections/inspiration' as *;
+@use './sections/gallery' as *;
+@use './sections/footer' as *;
+
+*{
+    font-family: "Poppins", sans-serif;
+}

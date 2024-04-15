@@ -1,0 +1,175 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+@use '../components/buttons' as *;
+
+
+.inspiration{
+    .left-content-box{
+        width: 60%;
+        margin-left: auto;
+        padding-right: 15px;
+
+        @include breakpoint(xxl){}
+        @include breakpoint(xl){
+            width: 86%;
+            padding-right: toRem(0);
+            margin-bottom: toRem(30);
+        }
+        @include breakpoint(md){
+            width: 92%;
+            padding-right: toRem(0); 
+            margin-bottom: toRem(30);
+        }
+        @include breakpoint(lg){
+            width: 92%;
+            padding-right: toRem(0);
+            margin-bottom: toRem(30);
+        }
+        @include breakpoint(sm){
+            width: 100%;
+            padding-right: toRem(0);
+            margin-bottom: toRem(30);
+        }
+        @include breakpoint(xs){
+            width: 100%;
+            padding-right: toRem(0);
+            margin-bottom: toRem(30);
+        }
+        h3{
+            text-align: left;
+            margin-bottom: 20px;
+            @include breakpoint(xl){
+                margin-bottom: 5px;
+
+            }
+        }
+        p{
+            @include getFontProps($fS:16,$lH:24,$fW:500);
+            margin-bottom:  toRem(20);
+        }
+        .thm-btn{
+            @include theme-colors($light-theme: true);
+            padding: toRem(18) toRem(72);
+            &:hover{
+                @include theme-colors($light-theme: false);
+                padding: toRem(18) toRem(72);
+            }
+        }
+    }
+    .inspiration-right{
+        padding-right: toRem(0);
+        @include breakpoint(xs){
+            padding-right: toRem(15);
+        }
+
+        .right-content-box{
+            .swiper{
+                padding-bottom: toRem(20);
+                @include breakpoint(xl){
+                    padding-bottom: toRem(50);
+                }
+                @include breakpoint(md){
+                    padding-bottom: toRem(50);
+                }
+                @include breakpoint(xs){
+                    padding-bottom: toRem(45);
+                }
+                .swiper-slide{
+                    .inspiration-box{
+                        position: relative;
+                        img{
+                            @include breakpoint(xl){
+                                height: toRem(390);
+                            }
+                            @include breakpoint(md){
+                                height: toRem(400);
+                            }
+                            @include breakpoint(xs){
+                                height: toRem(320);
+                            }
+                        }
+                        .info-box{
+                            position: absolute;
+                            bottom: toRem(20);
+                            left: toRem(20);
+                            background: #FFFFFF;
+                            opacity: 72%;
+                            padding: toRem(20);
+                            display: none;
+                            h5{
+                                @include getFontProps($fS:16,$lH:24,$fW:500);
+                                color: #616161;
+                            }
+                            h3{
+                                @include getFontProps($fS:28,$lH:33.6,$fW:600);
+                                color: $black-400;
+                                @include breakpoint(lg){
+                                    font-size: toRem(22);
+                                }
+                                @include breakpoint(md){
+                                    font-size: toRem(25);
+                                }
+                            }
+                            a{
+                                position: absolute;
+                                right: toRem(-44);
+                                background: $primary;
+                                bottom: 0;
+                                padding: toRem(10) toRem(15);
+                                color: $white;
+                            }
+                        }
+                    }
+                    &.swiper-slide-active{
+                        .inspiration-box{
+                            img{
+                                height: toRem(680);
+                                @include breakpoint(xxl){}
+                                @include breakpoint(xl){
+                                    height: toRem(420);
+                                }
+                                @include breakpoint(md){
+                                    height: toRem(460);
+                                }
+                                @include breakpoint(lg){
+                                    height: toRem(350);
+                                }
+                                @include breakpoint(sm){
+                                    height: toRem(350);
+                                }
+                                @include breakpoint(xs){
+                                    height: toRem(350);
+                                }
+                            }
+                            .info-box{
+                                display: block;
+                            }
+                        }
+                        
+                    }
+                }
+                .swiper-pagination{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    @include breakpoint(lg){
+                        margin-left: toRem(20);
+                    }
+                    .swiper-pagination-bullet{
+                        width: toRem(11); height: toRem(11);
+                        
+                    }
+                    .swiper-pagination-bullet-active{
+                        background: #b88e2f;
+                        border: toRem(11) solid rgb(255 255 255);
+                        padding: toRem(5);
+                        box-shadow: toRem(0) toRem(0) toRem(0) toRem(2) #b88e2f;
+                    }
+                }
+            }
+            
+            
+        }
+    }
+    
+}

@@ -1,0 +1,56 @@
+// PX to REM 
+@function toRem($value) {
+    $remValue: ($value/16) + rem;
+    @return $remValue;
+}
+
+@mixin getFontProps($fS:16,$lH:24,$fW:500) {
+    font-size: toRem($fS);
+    line-height: toRem($lH);
+    font-weight: fontWeight($fW);
+}
+
+// Font Weight 
+$font-weight: (
+    400:400,
+    500:500,
+    600:600,
+    700:700
+);
+
+@function fontWeight($fw){
+    @return map-get($font-weight, $fw);
+}
+
+// Text Transform
+$text-transform:(
+    "uppercase":uppercase,
+    "lowercase":lowercase,
+    "capitalize":capitalize
+);
+@function textTransform($ttrans){
+    @return map-get($text-transform , $ttrans);
+}
+
+
+// Breakpoints 
+$breakpoints:(
+    "xs":"max-width:575.98px",
+    "sm":"(min-width:576px) and (max-width:767.98px)",
+    "md":"(min-width:768px) and (max-width:991.98px)",
+    "lg":"(min-width:992px) and (max-width:1199.98px)",
+    "xl":"(min-width:1200px) and (max-width:1399.98px)",
+    "xxl":"min-width:1400px"
+);
+
+@mixin breakpoint($user-value){
+    $my-map: map-get($breakpoints, $user-value);
+    @if $my-map{
+        @media (#{$my-map}){
+            @content;
+        }
+    }
+    @else{
+        @error "Opps, seems like the breakpoint #{$user-value} isn't define yet"
+    }
+};

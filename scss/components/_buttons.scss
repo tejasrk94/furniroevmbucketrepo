@@ -1,0 +1,43 @@
+@use './mixins'  as *;
+@use '../custom' as *;
+
+@mixin theme-colors($light-theme: true) { //default parameter
+    @include getFontProps($fW:700);
+    text-transform: textTransform(uppercase);
+    padding: toRem(25) toRem(72);
+    display: inline-block;
+    
+    @if $light-theme {
+        background-color: $primary;
+        color: $white;
+        @include breakpoint(md){
+            @include getFontProps($lH:18);
+            padding: toRem(15) toRem(30);
+        }
+        @include breakpoint(xs){
+            @include getFontProps($lH:18);
+            padding: toRem(15) toRem(30);
+        }
+    }
+    @else {
+        background-color: $transparent;
+        color: $primary;
+        border: 1px solid $primary;
+        @include breakpoint(md){
+            @include getFontProps($fS:16,$lH:18,$fW:500);
+            padding: toRem(15) toRem(30);
+        }
+        @include breakpoint(xs){
+            @include getFontProps($fS:16,$lH:18,$fW:500);
+            padding: toRem(15) toRem(30);
+        }
+    }
+}
+
+.btn-cart{
+    @include getFontProps($fS:16,$lH:24,$fW:600);
+    padding: toRem(12) toRem(35);
+    display: inline-block;
+    color: $primary;
+    background-color: $white;
+}

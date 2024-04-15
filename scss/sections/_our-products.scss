@@ -1,0 +1,227 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+@use '../components/buttons' as *;
+
+
+.our-products{
+    .products-wrapper{
+        display: flex;
+        gap: toRem(30);
+        flex-wrap: wrap;
+        margin-bottom: toRem(35);
+        @include breakpoint(xxl){}
+        @include breakpoint(xl){
+            gap: toRem(20);
+        }
+        @include breakpoint(md){
+            gap: toRem(20);
+        }
+        @include breakpoint(lg){
+            gap: toRem(20);
+        }
+        @include breakpoint(sm){
+            gap: toRem(20);
+        }
+        @include breakpoint(xs){
+            gap: toRem(20);
+        }
+        
+        .product-box{
+            position: relative;
+            flex: 1 0 22%;
+            transition: 0.5s ease;
+
+            @include breakpoint(xxl){}
+            @include breakpoint(xl){}
+            @include breakpoint(md){
+                flex: 0 2 31.4%
+            }
+            @include breakpoint(lg){}
+            @include breakpoint(sm){
+                flex: 1 1 48%;
+            }
+            @include breakpoint(xs){
+                flex: 1 1 48%;
+            }
+
+            img{}
+            >span{
+                @include getFontProps($fS:12,$lH:24,$fW:500);
+                background-color: #E97171;
+                color: $white;
+                padding: toRem(10);
+                border-radius: 50%;
+                display: flex;
+                height: toRem(45);
+                width: toRem(45);
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: toRem(15);
+                right: toRem(15);
+            }
+            .product-content{
+                background-color: $light-gray;
+                padding: toRem(15) toRem(15) toRem(20);
+                @include breakpoint(xxl){}
+                @include breakpoint(xl){}
+                @include breakpoint(md){}
+                @include breakpoint(lg){}
+                @include breakpoint(sm){}
+                @include breakpoint(xs){}
+                h4{
+                    @include getFontProps($fS:24,$lH:28.8,$fW:600);
+                    color: $black-400;
+                    margin-bottom: toRem(5);
+                    @include breakpoint(xxl){}
+                    @include breakpoint(xl){
+                        font-size: toRem(22);
+                        margin-bottom: toRem(0);
+                    }
+                    @include breakpoint(md){
+                        font-size: toRem(20);
+                        margin-bottom: toRem(0);
+                    }
+                    @include breakpoint(lg){
+                        font-size: toRem(22);
+                        margin-bottom: toRem(0);
+                    }
+                    @include breakpoint(sm){
+                        font-size: toRem(20);
+                        margin-bottom: toRem(0);
+                    }
+                    @include breakpoint(xs){
+                        font-size: toRem(20);
+                        margin-bottom: toRem(0);
+                    }
+                }
+                p{
+                    @include getFontProps($fS:16,$lH:24,$fW:500);
+                    color: $black-300;
+                    @include breakpoint(xxl){}
+                    @include breakpoint(xl){
+                        font-size: toRem(15);
+                        margin-bottom: toRem(0);
+                    }
+                    @include breakpoint(md){
+                        font-size: toRem(14);
+                        margin-bottom: toRem(0);
+                    }
+                    @include breakpoint(lg){
+                        font-size: toRem(15);
+                        margin-bottom: toRem(0);
+                    }
+                    @include breakpoint(sm){
+                        margin-bottom: toRem(0);
+                        font-size: toRem(15);
+                    }
+                    @include breakpoint(xs){
+                        margin-bottom: toRem(0);
+                        font-size: toRem(15);
+                    }
+                }
+                .product-price{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    @include breakpoint(xs){
+                        justify-content: unset;
+                        gap: toRem(10);
+                    }
+                    h5{
+                        @include getFontProps($fS:20,$lH:30,$fW:600);
+                        color: $black-400;
+                        @include breakpoint(xxl){}
+                        @include breakpoint(xl){
+                            font-size: toRem(12);
+                        }
+                        @include breakpoint(md){
+                            font-size: toRem(12);
+                        }
+                        @include breakpoint(lg){
+                            font-size: toRem(12);
+                        }
+                        @include breakpoint(sm){
+                            font-size: toRem(12);
+                        }
+                        @include breakpoint(xs){
+                            font-size: toRem(12);
+                        }
+                    }
+                    span{
+                        @include getFontProps($fS:16,$lH:24,$fW:400);
+                        color: #B0B0B0;
+                        text-decoration: line-through;
+                        @include breakpoint(xxl){}
+                        @include breakpoint(xl){
+                            font-size: toRem(12);
+                        }
+                        @include breakpoint(md){
+                            font-size: toRem(12);
+                        }
+                        @include breakpoint(lg){
+                            font-size: toRem(12);
+                        }
+                        @include breakpoint(sm){
+                            font-size: toRem(12);
+                        }
+                        @include breakpoint(xs){
+                            font-size: toRem(12);
+                        }
+                    }
+                }
+            }
+            &:hover .product-overlay-content{
+                display: block;
+                transition: 0.5s ease;
+            }
+            .product-overlay-content{
+                position: absolute;
+                width: 100%;
+                top: 0;
+                background: #000;
+                height: 100%;
+                opacity: 72%;
+                display: none;
+                transition: 0.5s ease;
+
+                .overlay-content-box{
+                    position: absolute;
+                    width: 100%;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    text-align: center;
+                    transition: 0.5s ease;
+                    .sharing-box{
+                        display: flex;
+                        justify-content: space-around;
+                        margin-top: toRem(15);
+                        a{
+                            @include getFontProps($fS:16,$lH:24,$fW:600);
+                            color: $white;
+                            i{
+    
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .product-btn{
+        text-align: center;
+        a{
+            @include theme-colors($light-theme: false);
+            padding: toRem(18) toRem(72);
+            text-transform: capitalize;
+            transition: 0.5s ease;
+
+            &:hover{
+                @include theme-colors($light-theme: true);
+                padding: toRem(18) toRem(72);
+                text-transform: capitalize;
+                transition: 0.5s ease;
+            }
+        }  
+    }
+}

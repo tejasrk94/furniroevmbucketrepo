@@ -1,0 +1,183 @@
+@use './components/mixins' as *;
+
+// My Theme Colors
+$primary:#B88E2F;
+
+// White & Gray Colors
+$white:    #fff;
+$light-gray: #F4F5F7;
+$black:    #000;
+$black-100: #333333;
+$black-200: #666666;
+$black-300:#898989;
+$black-400:#3A3A3A;
+$transparent: #b88e2f00;
+
+
+
+
+// Import Bootstrap 5
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: $black-100;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased !important; 
+    overflow-x: hidden;
+}
+
+body.locked {
+    overflow: hidden;
+}
+
+a {
+    color: $black-100;
+}
+
+a,
+a:hover,
+a:focus,
+a:visited {
+    text-decoration: none;
+}
+
+::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: inherit;
+    opacity: 1;
+}
+
+::-ms-input-placeholder {
+    color: inherit;
+    opacity: 1;
+}
+
+::placeholder {
+    color: inherit;
+    opacity: 1;
+}
+img{
+    width:100%;
+}
+:root {
+    scroll-behavior: unset;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $black;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    font-size:16px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+dl,
+ol,
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+section{
+    position: relative;
+
+    @mixin section-padding($sect-padd:true){
+        @if $sect-padd{
+            padding: toRem(60) toRem(0);
+        }
+        @else{
+            padding: toRem(0);
+        }
+    }
+    @include section-padding($sect-padd: true);
+    &.main-banner{
+        @include section-padding($sect-padd: false);
+    }
+
+    @include breakpoint(xs){
+        padding: toRem(30) toRem(0);
+    }
+}
+.section-title{
+    @include getFontProps($fS:40,$lH:48,$fW:700);
+    color: $black-400;
+    margin-bottom: 25px;
+    text-align: center;
+    @include breakpoint(xxl){}
+    @include breakpoint(xl){
+        font-size: toRem(26);
+        margin-bottom: toRem(10);
+    }
+    @include breakpoint(md){
+        font-size: toRem(26);
+        margin-bottom: toRem(10);
+    }
+    @include breakpoint(lg){
+        font-size: toRem(26);
+        margin-bottom: toRem(10);
+    }
+    @include breakpoint(sm){
+        font-size: toRem(26);
+        margin-bottom: toRem(10);
+        line-height: toRem(30);
+    }
+    @include breakpoint(xs){
+        font-size: toRem(26);
+        margin-bottom: toRem(10);
+        line-height: toRem(30);
+    }
+}
+.main-banner{
+    &.other-bg {
+        position: relative;
+        .banner-img {
+            width: 100%;
+            height: toRem(316);
+            @include breakpoint(xs){
+                height: toRem(180);
+            }
+        }
+        .banner-text{
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            h2{
+                @include getFontProps($fS:48,$lH:72);
+                margin-bottom: toRem(10);
+                @include breakpoint(xl){
+                    @include getFontProps($fS:24,$lH:26);
+                    text-align: center;
+                }
+                @include breakpoint(xs){
+                    @include getFontProps($fS:24,$lH:26);
+                    text-align: center;
+                }
+            }
+            h4{
+                color: $black;
+                @include getFontProps($fW:400);
+                a{
+                    color: $black;
+                    font-weight: fontWeight(500);
+                }
+            }
+        }
+    }
+}

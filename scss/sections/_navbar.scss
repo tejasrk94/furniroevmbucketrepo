@@ -1,0 +1,38 @@
+@use '../components/mixins' as *;
+@use '../custom' as *;
+
+.main-header{
+    nav{
+        padding: toRem(10) toRem(30);
+        .navbar-brand{
+            img{
+
+            }
+        }
+        .navbar-collapse{
+            .navbar-nav{
+                gap: 60px;
+                @include breakpoint(xs){
+                    gap: 20px;
+                    margin-top: toRem(20)
+                }
+                .nav-item{
+                    .nav-link{
+                        font-size: toRem(16);
+                        color: $black
+                    }
+                }
+            }
+            .icons-right{
+                gap: 15px;
+    
+                a{
+                    padding: 10px;
+                    i{
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

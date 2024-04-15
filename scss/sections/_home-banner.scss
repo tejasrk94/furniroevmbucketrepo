@@ -1,0 +1,91 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+@use '../components/buttons' as *;
+
+
+.main-banner {
+    .banner-img {
+        width: 100%;
+        height: calc(100vh - toRem(71));
+        @include breakpoint(xs){
+            height: calc(100vh - 200px);
+        }
+    }
+
+    .banner-box {
+        position: absolute;
+        top: 50%;
+        right: 4%;
+        transform: translateY(-50%);
+        background-color: #FFF3E3;
+        padding: 50px 30px 40px;
+        width: 35%;
+
+        @include breakpoint(xl){
+            width: 45%;
+            transform: translate(0%, -50%);
+        }
+        @include breakpoint(lg){
+            width: 50%;
+            transform: translate(0%, -50%);
+        }
+        @include breakpoint(md){
+            width: 75%;
+            transform: translate(-50% , -50%);
+            left: 50%;
+        }
+        @include breakpoint(sm){
+            width: 97%;
+            transform: translate(-50% , -50%);
+            left: 50%;
+        }
+        @include breakpoint(xs){
+            width: 97%;
+            transform: translate(-50% , -50%);
+            left: 50%;
+        }
+        h5 {
+            font-size: toRem(16);
+            line-height: toRem(24);
+            font-weight: fontWeight(600);
+            letter-spacing: toRem(3);
+        }
+
+        h1 {
+            @include getFontProps($fS:52,$lH:65,$fW:700);
+            color: $primary;
+            margin-bottom: 10px;
+            @include breakpoint(xl){
+                @include getFontProps($fS:38,$lH:40);
+            }
+            @include breakpoint(lg){
+                @include getFontProps($fS:38,$lH:40);
+            }
+            @include breakpoint(md){
+                @include getFontProps($fS:32,$lH:36);
+            }
+            @include breakpoint(sm){}
+            @include breakpoint(xs){
+                @include getFontProps($fS:32,$lH:36);
+            }
+        }
+
+        p {
+            @include getFontProps($fS:18,$lH:24,$fW:500);
+            color: $black-100;
+            margin-bottom: toRem(30);
+            @include breakpoint(md){
+                @include getFontProps($fS:16,$lH:24);
+                margin-bottom: toRem(15);
+            }
+            @include breakpoint(xs){
+                @include getFontProps($fS:16,$lH:24);
+                margin-bottom: toRem(15);
+            }
+        }
+
+        a {
+            @include theme-colors($light-theme: true);
+        }
+    }
+}

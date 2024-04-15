@@ -1,0 +1,99 @@
+@use '../custom' as *;
+@use '../components/mixins' as *;
+@use '../components/buttons' as *;
+
+
+.footer{
+    position: relative;
+    padding: toRem(60) toRem(0) toRem(0);
+    border-top: toRem(2) solid #d0d0d0;
+    .footer-wrap{
+        @include breakpoint(xs){
+            gap: toRem(20);
+        }
+        .widget{
+            &.widget-about{
+                p{
+                    @include getFontProps($fS:16, $lH:24, $fW:400);
+                    color: #9F9F9F;
+                }
+            }
+    
+            .widget-title{
+                margin-bottom: toRem(40);
+                @include breakpoint(xs){
+                    margin-bottom: toRem(15);
+                }
+                h3{
+                    @include getFontProps($fS:16, $lH:24, $fW:500);
+                    color: #9F9F9F;
+                    @include breakpoint(xs){
+                        font-size: toRem(20);
+                    }
+                }
+                &.logo{
+                    width: toRem(150);
+                }
+            }
+            &.widget-link{
+                ul{
+                    padding-left: 0;
+                    list-style: none;
+                    li{
+                        a{
+                            @include getFontProps($fS:16, $lH:24, $fW:500);
+                            color: $black;
+                            padding-bottom: toRem(30);
+                            display: block;
+                            @include breakpoint(xs){
+                                padding-bottom: toRem(10);
+                            }
+                            &:hover{
+                                color: $primary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        .widget-newsletter{
+            .newsletter-box{
+                .input-group{
+                    display: flex;
+                    flex-wrap: nowrap;
+                    input{
+                        @include getFontProps($fS:16, $lH:24, $fW:400);
+                        margin-right: toRem(5);
+                        border-bottom: toRem(1) solid #000;
+                        padding: toRem(8);
+                        position: relative;
+                        border: none;
+                        color: #9F9F9F;
+                        width: 100%;
+                        outline: none;
+                    }
+                    a{
+                        display: flex;
+                        align-items: center;
+                        border-bottom: toRem(1) solid #000;
+                    }
+                }
+            }
+        }
+    }
+    .copyright{
+        border-top: toRem(2) solid #d0d0d0;
+        @include breakpoint(xs){
+            margin-top: toRem(20);
+        }
+        p{
+            padding: toRem(25) toRem(0);
+            margin-bottom: 0;
+            @include breakpoint(xs){
+                padding: toRem(20) toRem(0);
+                text-align: center;
+            }
+        }
+    }
+}
